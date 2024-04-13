@@ -1,0 +1,122 @@
+body, html{
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #FFF5ED;
+  }
+  
+  .navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    border-bottom: none;
+  }
+  
+  .navbar-brand {
+    color: #FF6A59;
+  }
+  
+  .nav-item .nav-link {
+    position: relative;
+    color: #000000; 
+    transition: color 0.2s; 
+  }
+  
+  .nav-item .nav-link:hover::after, .nav-item .nav-link:focus::after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 100%;
+    background: #030957; 
+  }
+  
+  .nav-item .nav-link::after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0;
+    background: transparent;
+    transition: width 0.2s; 
+  }
+  
+  .hero-section {
+    background-color: #FEEAE6;
+    padding: 50px 0;
+    border-bottom: 5px solid #FEDBD0;
+  }
+  
+  .hero-section h1 {
+    color: #442C2E;
+    margin-bottom: 25px;
+  }
+  
+  .hero-section p {
+    color: #442C2E;
+    margin-bottom: 35px;
+  }
+  
+  .btn-primary {
+    background-color: #442C2E;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #6D4C41;
+  }
+
+  .btn-custom {
+    background-color: #FF6A59; 
+    border: none;
+    color: white; 
+    padding: 10px 20px;
+    font-size: 16px; 
+    border-radius: 4px;
+    box-shadow: 0 4px #030957; 
+  }
+  
+  .btn-custom:hover {
+    background-color: #E55A4E; 
+    box-shadow: 0 2px #030957; 
+  }
+ 
+  .btn-custom:active {
+    position: relative;
+    top: 2px;
+    box-shadow: none;
+  }
+  
+.navbar .ml-auto {
+    margin-left: auto;
+  }
+  
+  .navbar .btn-primary {
+    margin-left: 10px; 
+  }
+  
+.navbar-brand {
+    font-family: 'Arial', sans-serif; 
+    font-weight: bold;
+    font-size: 24px; 
+  }
+  
+  .brand-pet {
+    color: #030957; 
+  }
+  
+  .brand-care {
+    color: #FF7A49; 
+  }
+  
+  .custom-text {
+    color: #030957;
+    font-weight: bold;
+    font-size: 50px;
+  }
+
+  .custom-image {
+    width: 150px; 
+    height: auto; 
+  }
+  
+ 
+  
