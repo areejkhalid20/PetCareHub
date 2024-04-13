@@ -1,14 +1,17 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const PORT =  3000;
 
-// Serve static files from the "public" directory
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use('/auth', authRoutes);
 
 // Routes
 app.use('/', require('./routes/index'));
 
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

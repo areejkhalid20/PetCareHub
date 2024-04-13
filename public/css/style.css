@@ -2,18 +2,22 @@ body, html{
     font-family: 'Arial', sans-serif;
     color: #333;
     background-color: #FFF5ED;
+    
   }
   
   .navbar {
-    background-color: #fff;
+    background-color: #FFF5ED;
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
-    border-bottom: none;
   }
   
   .navbar-brand {
     color: #FF6A59;
   }
-  
+
+  .dropdown-item:hover {
+    border-bottom: 5px solid #030957; 
+}
+
   .nav-item .nav-link {
     position: relative;
     color: #000000; 

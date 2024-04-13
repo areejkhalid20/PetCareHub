@@ -20,9 +20,18 @@
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Services
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Pets Accessories</a>
+              <a class="dropdown-item" href="#">Pet Food</a>
+              <a class="dropdown-item" href="#">Buy Pets</a>
+              <a class="dropdown-item" href="#">Sell Pets</a>
+              <a class="dropdown-item" href="#">Pets Pharmacy</a>
+            </div>
+          </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contact Vet</a>
         </li>
@@ -35,7 +44,7 @@
       </ul>
     </div>
     <div class="ml-auto">
-      <a href="#" class="btn btn-custom">Sign Up</a>
+      <a href="#" class="btn btn-custom" onclick="window.location.href='/register.html';">Sign Up</a>
     </div>
   </nav>
 
@@ -48,7 +57,7 @@
        <span><h1 class="display-5 fw-bold custom-text lh-1 mb-3">Taking care </h1>
         <p class="lead custom-text">of your little friends <img src="/img/magic.png" alt="Image 2"></p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Sign In</button>
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="window.location.href='/login.html';">Sign In</button>
         </div>
       </div>
     </div>
