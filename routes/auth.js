@@ -7,7 +7,7 @@ const dummyUser = {
   password: "ILoveProgramming" 
 };
 
-router.post('/login', (req, res) => {
+router.post('/sign_in', (req, res) => {
   const { email, password } = req.body;
   
   if (email === dummyUser.email && password === dummyUser.password)
