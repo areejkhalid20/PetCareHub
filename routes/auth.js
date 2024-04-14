@@ -20,4 +20,11 @@ router.post('/sign_in', (req, res) => {
    }
 });
 
+router.post('/sign_up', (req, res) => {
+  
+  const { email, password } = req.body;
+  res.json({ success: true, message: "Sign-up successful!." }); //respond with sucees message to user
+
+});
+
 module.exports = router;
