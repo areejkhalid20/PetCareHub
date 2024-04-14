@@ -13,7 +13,4 @@ router.get('/sign_in', (req, res) => {
 router.get('/sign_up', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'views', 'sign_up.html'));
 });
-
-// Add other routes...
-
 module.exports = router;

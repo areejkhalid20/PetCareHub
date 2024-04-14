@@ -1,126 +1,215 @@
 body, html{
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    background-color: #FFF5ED;
-    
-  }
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #FFF5ED;
   
-  .navbar {
-    background-color: #FFF5ED;
-    box-shadow: 0 2px 4px rgba(0,0,0,.1);
-  }
-  
-  .navbar-brand {
-    color: #FF6A59;
-  }
-
-  .dropdown-item:hover {
-    border-bottom: 5px solid #030957; 
 }
 
-  .nav-item .nav-link {
-    position: relative;
-    color: #000000; 
-    transition: color 0.2s; 
-  }
-  
-  .nav-item .nav-link:hover::after, .nav-item .nav-link:focus::after {
-    content: '';
-    display: block;
-    margin: auto;
-    height: 3px;
-    width: 100%;
-    background: #030957; 
-  }
-  
-  .nav-item .nav-link::after {
-    content: '';
-    display: block;
-    margin: auto;
-    height: 3px;
-    width: 0;
-    background: transparent;
-    transition: width 0.2s; 
-  }
-  
-  .hero-section {
-    background-color: #FEEAE6;
-    padding: 50px 0;
-    border-bottom: 5px solid #FEDBD0;
-  }
-  
-  .hero-section h1 {
-    color: #442C2E;
-    margin-bottom: 25px;
-  }
-  
-  .hero-section p {
-    color: #442C2E;
-    margin-bottom: 35px;
-  }
-  
-  .btn-primary {
-    background-color: #442C2E;
-    border: none;
-  }
-  
-  .btn-primary:hover {
-    background-color: #6D4C41;
-  }
+.navbar {
+  background-color: #FFF5ED;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
 
-  .btn-custom {
-    background-color: #FF6A59; 
-    border: none;
-    color: white; 
-    padding: 10px 20px;
-    font-size: 16px; 
-    border-radius: 4px;
-    box-shadow: 0 4px #030957; 
-  }
-  
-  .btn-custom:hover {
-    background-color: #E55A4E; 
-    box-shadow: 0 2px #030957; 
-  }
- 
-  .btn-custom:active {
-    position: relative;
-    top: 2px;
-    box-shadow: none;
-  }
-  
-.navbar .ml-auto {
-    margin-left: auto;
-  }
-  
-  .navbar .btn-primary {
-    margin-left: 10px; 
-  }
-  
 .navbar-brand {
-    font-family: 'Arial', sans-serif; 
-    font-weight: bold;
-    font-size: 24px; 
-  }
-  
-  .brand-pet {
-    color: #030957; 
-  }
-  
-  .brand-care {
-    color: #FF7A49; 
-  }
-  
-  .custom-text {
-    color: #030957;
-    font-weight: bold;
-    font-size: 50px;
-  }
+  color: #FF6A59;
+}
 
-  .custom-image {
-    width: 150px; 
-    height: auto; 
-  }
-  
- 
-  
+.dropdown-item:hover {
+  border-bottom: 5px solid #030957; 
+}
+
+.nav-item .nav-link {
+  position: relative;
+  color: #000000; 
+  transition: color 0.2s; 
+}
+
+.nav-item .nav-link:hover::after, .nav-item .nav-link:focus::after {
+  content: '';
+  display: block;
+  margin: auto;
+  height: 3px;
+  width: 100%;
+  background: #030957; 
+}
+
+.nav-item .nav-link::after {
+  content: '';
+  display: block;
+  margin: auto;
+  height: 3px;
+  width: 0;
+  background: transparent;
+  transition: width 0.2s; 
+}
+
+.hero-section {
+  background-color: #FEEAE6;
+  padding: 50px 0;
+  border-bottom: 5px solid #FEDBD0;
+}
+
+.hero-section h1 {
+  color: #442C2E;
+  margin-bottom: 25px;
+}
+
+.hero-section p {
+  color: #442C2E;
+  margin-bottom: 35px;
+}
+
+.btn-primary {
+  background-color: #442C2E;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #6D4C41;
+}
+
+.btn-custom {
+  background-color: #FF6A59; 
+  border: none;
+  color: white; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  border-radius: 4px;
+  box-shadow: 0 4px #030957; 
+}
+
+.btn-custom:hover {
+  background-color: #E55A4E; 
+  box-shadow: 0 2px #030957; 
+}
+
+.btn-custom:active {
+  position: relative;
+  top: 2px;
+  box-shadow: none;
+}
+
+.navbar .ml-auto {
+  margin-left: auto;
+}
+
+.navbar .btn-primary {
+  margin-left: 10px; 
+}
+
+.navbar-brand {
+  font-family: 'Arial', sans-serif; 
+  font-weight: bold;
+  font-size: 24px; 
+}
+
+.brand-pet {
+  color: #030957; 
+}
+
+.brand-care {
+  color: #FF7A49; 
+}
+
+.custom-text {
+  color: #030957;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.custom-image {
+  width: 150px; 
+  height: auto; 
+}
+/*About us*/
+.about-section {
+position: relative;
+z-index: 1;
+padding: 60px 0;
+color: white; 
+background: transparent; /* Ensure the background is transparent so the image shows */
+overflow: hidden; /* Keeps the pseudo-element inside the bounds of the section */
+}
+
+.about-section::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-image: url('/img/pet-bg.webp'); /* Path to your background image */
+background-size: cover;
+background-position: center;
+filter: blur(8px); /* Adjust the blur level as needed */
+z-index: -1; /* Keeps the background behind the content */
+}
+
+/* Ensure text and other content are readable and not blurred */
+.about-section * {
+position: relative;
+z-index: 2;
+}
+
+.about-section .container {
+max-width: 900px; /* Set a max-width for the content if needed */
+margin: auto;
+}
+
+.about-section p {
+font-size: 1.25rem; /* Larger font size for paragraph */
+}
+
+.pet-images img {
+width: auto; /* maintain aspect ratio */
+height: 200px; /* height, adjust as needed */
+border-radius: 10px; /* Rounded corners for images */
+transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.pet-images img:hover {
+transform: scale(1.05); /* Slightly increase size on hover */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+}
+
+.social-icons .social-icon {
+font-size: 2.5rem;
+color: #030957; 
+transition: transform 0.3s ease;
+}
+
+.social-icons .social-icon:hover {
+transform: scale(1.1); 
+}
+
+#whatsapp:hover {
+color: #25D366; 
+}
+
+#facebook:hover {
+color: #3b5998; 
+}
+
+#twitter:hover {
+color: #1DA1F2; 
+}
+
+/*footer */
+footer {
+background-color: #FFF5ED; 
+color: #030957;
+font-size: 14px;
+}
+
+footer a {
+color: #030957; 
+transition: color 0.3s ease; 
+}
+
+footer .fab {
+font-size: 1.5rem; 
+}
+
+h4{
+color: #030957;
+}

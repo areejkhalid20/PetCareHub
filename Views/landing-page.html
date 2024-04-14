@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+
   <title>Petcare Landing Page</title>
  
 </head>
@@ -36,10 +38,7 @@
           <a class="nav-link" href="#">Contact Vet</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact Us</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
+            <a class="nav-link" href="#about">About Us</a>
           </li>
       </ul>
     </div>
@@ -57,11 +56,48 @@
        <span><h1 class="display-5 fw-bold custom-text lh-1 mb-3">Taking care </h1>
         <p class="lead custom-text">of your little friends <img src="/img/magic.png" alt="Image 2"></p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="window.location.href='/sign_in.html';">Sign In</button>
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="window.location.href='/sign_in';">Sign In</button>
         </div>
       </div>
     </div>
   </div>
+
+  <!--About Us Section-->
+<!--About Us Section-->
+<div id="about" class="about-section text-center bg-blue py-5">
+  <div class="container">
+    <h2 class="display-4 font-weight-bold text-white">About Us</h2>
+    <p class="lead text-white my-4">
+      We are passionate about pets and their well-being. Our mission is to provide the highest quality care and services for your furry friends. Whether it's finding the perfect accessory, the tastiest food, or the best care, we are here for every step of your pet's journey.
+    </p>
+    <div class="pet-images d-flex justify-content-center flex-wrap">
+      <img src="/img/pet1.jpg" alt="Pet Image" class="img-fluid m-2">
+      <img src="/img/pet2.jpg" alt="Pet Image" class="img-fluid m-2">
+      <img src="/img/pet3.jpg" alt="Pet Image" class="img-fluid m-2">
+    </div>
+  </div>
+</div>
+<!-- footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <div class="me-5 d-none d-lg-block">
+      <span>Connect with us on social media:</span>
+    </div>
+    <div>
+      <div class="social-icons mt-4">
+      <a href="your-whatsapp-link" class="social-icon mx-2" id="whatsapp"><i class="fab fa-whatsapp"></i></a>
+      <a href="your-facebook-link" class="social-icon mx-2" id="facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="your-twitter-link" class="social-icon mx-2" id="twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+    </div>
+  </section>
+
+  <!-- footer copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024 PetCare - All rights reserved.
+  </div>
+</footer>
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
