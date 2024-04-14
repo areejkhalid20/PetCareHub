@@ -7,10 +7,11 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/index', authRoutes);
-
 // Routes
 app.use('/', require('./routes/index'));
+
+app.use('/auth', authRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
