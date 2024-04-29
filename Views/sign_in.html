@@ -3,24 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-    <link rel="stylesheet" href="../public/css/signin_style.css">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/signup_style.css">
 </head>
 <body>
     <div class="container">
-        <h2>Sign In</h2>
-        <form id="signInForm" onsubmit="return validateForm()">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-
-            <input type="submit" value="Sign In">
-        </form>
+        <form id="signUpForm" action="/submit_signup" method="POST">
+            <div class="signup-container">
+              <div class="left-container" style="background: #030957;">
+                <h1 style="color: #FFF5ED;">
+                  <i class="fas fa-paw" style="background: #FF6A59;"></i>
+                  PetCare
+                </h1>
+                <div class="puppy">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png" alt="Puppy Image">
+                </div>
+              </div>
+              <div class="right-container" style="background: #FFF5ED;">
+                <header>
+                  <h1 style="color: #030957;">Pawsitively perfect pet care awaits! Sign up now for good deals!</h1>
+                  <div class="set">
+                    <div class="pets-name">
+                      <label for="email" style="color: #030957;">Email</label>
+                      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                  </div>
+                  <div class="set">
+                    <div class="pets-breed">
+                      <label for="password" style="color: #030957;">Password</label>
+                      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                  </div>
+                  <div class="set">
+                    <button type="submit" style="background-color: #FF6A59; color: white; padding: 10px 20px; border: none; cursor: pointer; margin-top: 20px;">Sign In</button>
+                  </div>
+                </header>
+              </div>
+            </div>
+          </form>
+          
     </div>
 
-    <script src="/PetCareHub/routes/index.js">
-    </script>
+    <script src="/PetCareHub/routes/index.js"></script>
 </body>
 </html>
