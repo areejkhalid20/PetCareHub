@@ -127,8 +127,8 @@ position: relative;
 z-index: 1;
 padding: 60px 0;
 color: white; 
-background: transparent; 
-overflow: hidden;
+background: transparent; /* Ensure the background is transparent so the image shows */
+overflow: hidden; /* Keeps the pseudo-element inside the bounds of the section */
 }
 
 .about-section::before {
@@ -138,42 +138,38 @@ top: 0;
 left: 0;
 right: 0;
 bottom: 0;
-background-image: url('/img/pet-bg.webp'); 
+background-image: url('/img/pet-bg.webp'); /* Path to your background image */
 background-size: cover;
 background-position: center;
-filter: blur(8px); 
-z-index: -1; 
+filter: blur(8px); /* Adjust the blur level as needed */
+z-index: -1; /* Keeps the background behind the content */
 }
 
-.about-section {
-  padding: 30px 0; /* Reduced vertical padding */
-  position: relative;
-  z-index: 1;
-  color: white;
-  background: transparent;
-  overflow: hidden;
+/* Ensure text and other content are readable and not blurred */
+.about-section * {
+position: relative;
+z-index: 2;
 }
 
 .about-section .container {
-  max-width: 900px;
-  margin: auto;
-  text-align: left; /* Align text to the left */
+max-width: 900px; /* Set a max-width for the content if needed */
+margin: auto;
 }
 
 .about-section p {
-font-size: 1.25rem; 
+font-size: 1.25rem; /* Larger font size for paragraph */
 }
 
 .pet-images img {
-width: auto; 
-height: 200px; 
-border-radius: 10px; 
-transition: transform 0.3s ease, box-shadow 0.3s ease; 
+width: auto; /* maintain aspect ratio */
+height: 200px; /* height, adjust as needed */
+border-radius: 10px; /* Rounded corners for images */
+transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
 }
 
 .pet-images img:hover {
-transform: scale(1.05); 
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+transform: scale(1.05); /* Slightly increase size on hover */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
 }
 
 .social-icons .social-icon {
@@ -200,12 +196,11 @@ color: #1DA1F2;
 
 /*footer */
 footer {
-  background-color: #FFF5ED;
-  color: #030957;
-  font-size: 14px;
-  padding-top: 5px; /* Reduced padding-top */
-  padding-bottom: 10px; /* Reduced padding-bottom */
+background-color: #FFF5ED; 
+color: #030957;
+font-size: 14px;
 }
+
 footer a {
 color: #030957; 
 transition: color 0.3s ease; 
@@ -213,4 +208,8 @@ transition: color 0.3s ease;
 
 footer .fab {
 font-size: 1.5rem; 
+}
+
+h4{
+color: #030957;
 }
