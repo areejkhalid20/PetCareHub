@@ -1,48 +1,137 @@
-body {
-    font-family: Arial, sans-serif;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-}
-
-.container {
-    max-width: 400px;
-    margin: 100px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  }
+  
+  body {
+    align-items: center;
+    background: #D8AA96;
+    color: #FFF5ED;
+    display: grid;
+    font-family: 'Montserrat', sans-serif;
     font-size: 14px;
-}
-
-input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
+    font-weight: 400;
+    height: 100vh;
+    justify-items: center;
+    width: 100vw;
+  }
+  
+  .signup-container {
+    display: grid;
+    grid-template-areas: "left right";
+    max-width: 900px;
+  }
+  
+  .left-container {
+    background: #030957;
+    overflow: hidden;
+    padding: 40px 0 0 0;
+    position: relative;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .left-container h1 {
+    color: #FFF5ED;
+    display: inline-block;
+    font-size: 24px;
+  }
+  
+  .left-container h1 i {
+    background: #FF6A59;
+    border-radius: 50%;
+    color: #FFF5ED;
+    font-size: 24px;
+    margin-right: 5px;
+    padding: 10px;
+    transform: rotate(-45deg);
+  }
+  
+  .left-container .puppy {
+    bottom: -5px;
+    position: absolute;
+    text-align: center;
+  }
+  
+  .left-container .puppy:before {
+    background: #030957;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: .4;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .left-container img {
+    filter: sepia(100%);
+    width: 70%;
+  }
+  
+  .right-container {
+    background: #FFF5ED;
+    display: grid;
+    grid-template-areas: "." ".";
+    width: 500px;
+  }
+  
+  .right-container h1:nth-of-type(1) {
+    color: #030957;
+    font-size: 28px;
+    font-weight: 600;
+  }
+  
+  .right-container .set {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  
+  .right-container input {
+    border: 1px solid rgba(0,0,0,.1);
     border-radius: 4px;
-    cursor: pointer;
-    max-width: 50%;
-}
+    height: 38px;
+    line-height: 38px;
+    padding-left: 5px;
+  }
+  
+  .right-container input,
+  .right-container label {
+    color: #030957;
+  }
+  
+  .right-container header {
+    padding: 40px;
+  }
+  
+  .right-container label,
+  .right-container input,
+  .right-container .pets-photo {
+    width: 176px;
+  }
+  
+  .right-container .pets-photo {
+    align-items: center;
+    display: grid;
+    grid-template-areas: ". .";
+  }
+  
+  .right-container .pets-photo button {
+    border: none;
+    border-radius: 50%;
+    height: 38px;
+    margin-right: 10px;
+    outline: none;
+    width: 38px;
+  }
+  
+  .right-container .pets-photo button i {
+    color: #030957;
+    font-size: 16px;
+  }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
+
+  
+  
