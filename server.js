@@ -1,16 +1,16 @@
 const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const PORT = 3000;
+const router = express.Router();
+const path = require('path');
 
-app.use(express.urlencoded({ extended: true }));
-
-app.use(express.static('public'));
-
-// Routes
-app.use('/', require('./routes/index'));
-app.use('/auth', require('./routes/auth'));  
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+router.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'views', 'landing-page.html'));
 });
+
+router.get('/sign_in', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'views', 'sign_in.html'));
+});
+
+router.get('/sign_up', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'views', 'sign_up.html'));
+});
+module.exports = router;
