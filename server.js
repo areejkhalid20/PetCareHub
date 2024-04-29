@@ -1,16 +1,32 @@
 const express = require('express');
-const router = express.Router();
-const path = require('path');
+const app = express();
+const PORT = 3000;
 
-router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'views', 'landing-page.html'));
+// Middleware to parse URL-encoded bodies (as sent by HTML forms)
+app.use(express.urlencoded({ extended: true }));
+
+// Serve static files (CSS, JS, images)
+app.use(express.static('public'));
+
+// POST route for handling newsletter subscriptions
+app.post('/subscribe', (req, res) => {
+    const email = req.body.email;
+
+    // Simple email validation
+    if (!email || !email.includes('@')) {
+        res.status(400).send('Invalid email address.');
+        return;
+    }
+
+    // Here you would typically add the email to a database or an email list
+    console.log(`Subscription request received for email: ${email}`);
+
+    // Respond to the client
+    res.send('Thank you for subscribing to our newsletter!');
 });
 
-router.get('/sign_in', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'views', 'sign_in.html'));
-});
+// Other routes can go here
 
-router.get('/sign_up', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'views', 'sign_up.html'));
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
-module.exports = router;
