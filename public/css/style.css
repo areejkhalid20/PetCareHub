@@ -200,32 +200,17 @@ color: #1DA1F2;
 
 /*footer */
 footer {
-  background-color: #7a3f0e; /* Match this color to your existing footer background */
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-}
-
-.btn-primary {
-  background-color: #FF7A49; 
-
-}
-.social-title {
+  background-color: #FFF5ED;
   color: #030957;
-  font-weight: bold;
-  font-size: 35px;
+  font-size: 14px;
+  padding-top: 5px; /* Reduced padding-top */
+  padding-bottom: 10px; /* Reduced padding-bottom */
 }
-/*For social media icons*/
-.fab {
-  font-size: 1.5rem;
-  color: inherit; 
-}
-.news
-{
-  text-align: left;
-  color: #000000;
+footer a {
+color: #030957; 
+transition: color 0.3s ease; 
 }
 
-
-
-
+footer .fab {
+font-size: 1.5rem; 
+}
