@@ -62,9 +62,9 @@
     </div>
   </div>
 
-  <!--About Us Section-->
+
 <!--About Us Section-->
-<div id="about" class="about-section text-center bg-blue py-5">
+<div id="about" class="about-section text-center bg-blue py-5" style="background-color: #FFF5ED;">
   <div class="container">
     <h2 class="display-4 font-weight-bold text-white">About Us</h2>
     <p class="lead text-white my-4">
@@ -79,21 +79,27 @@
 </div>
 <!-- footer -->
 <footer class="text-center text-lg-start bg-light text-muted">
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <div class="me-5 d-none d-lg-block">
-      <span>Connect with us on social media:</span>
+  <section class="d-flex justify-content-between p-4 border-bottom" style="background-color: #FFF5ED;">
+    <div class="me-5">
+      <span class="social-title">Subscribe to our Newsletter</span>
+      <p class="newsletter-description" style="color: #030957;">Sign up for exclusive updates, new arrivals & insider only discounts</p> <!-- Added description -->
+      <!-- Newsletter Subscription Section -->
+      <form action="/subscribe" method="post" class="form-inline mt-2">
+        <input type="email" name="email" class="form-control mb-2 mr-sm-2" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary mb-2">Subscribe</button>
+      </form>
     </div>
     <div>
       <div class="social-icons mt-4">
-      <a href="your-whatsapp-link" class="social-icon mx-2" id="whatsapp"><i class="fab fa-whatsapp"></i></a>
-      <a href="your-facebook-link" class="social-icon mx-2" id="facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="your-twitter-link" class="social-icon mx-2" id="twitter"><i class="fab fa-twitter"></i></a>
-    </div>
+        <a href="your-whatsapp-link" class="social-icon mx-2" id="whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="your-facebook-link" class="social-icon mx-2" id="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="your-twitter-link" class="social-icon mx-2" id="twitter"><i class="fab fa-twitter"></i></a>
+      </div>
     </div>
   </section>
-
-  <!-- footer copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+  
+  <!-- Footer copyright -->
+  <div class="text-center p-4" style="background-color: #FFF5ED;">
     © 2024 PetCare - All rights reserved.
   </div>
 </footer>
