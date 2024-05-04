@@ -69,6 +69,23 @@ body, html
   transition: width 0.2s; 
 }
 
+.navbar .ml-auto 
+{
+  margin-left: 10px;
+}
+
+.navbar .btn-primary
+ {
+  margin-left: 10px; 
+}
+
+.navbar-brand
+ {
+  font-family: 'Arial', sans-serif; 
+  font-weight: bold;
+  font-size: 24px; 
+}
+
 .hero-section
  {
   background-color: #FEDBD0;
@@ -121,23 +138,6 @@ body, html
   position: relative;
   top: 2px;
   box-shadow: none;
-}
-
-.navbar .ml-auto 
-{
-  margin-left: 10px;
-}
-
-.navbar .btn-primary
- {
-  margin-left: 10px; 
-}
-
-.navbar-brand
- {
-  font-family: 'Arial', sans-serif; 
-  font-weight: bold;
-  font-size: 24px; 
 }
 
 .brand-pet 
@@ -279,3 +279,4 @@ font-size: 1.5rem;
   font-weight: bold;
   margin-right: 100px;
 }
+
