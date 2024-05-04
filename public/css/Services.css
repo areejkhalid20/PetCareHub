@@ -73,3 +73,11 @@ body, html
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
+.footersec
+{
+  background-color: #FFF5ED;
+  color: #030957;
+  font-size: 14px;
+  padding-top: 5px; /* Reduced padding-top */
+  padding-bottom: 10px; /* Reduced padding-bottom */
+}
