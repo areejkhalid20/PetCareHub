@@ -1,30 +1,29 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../models/user');
 
-//using dummy user since database isnt allowed 
-const dummyUser = {
-  email: "random@example.com",
-  password: "ILoveProgramming" 
-};
+router.post('/sign_up', async (req, res) => {
+  const { email, password, confirmPassword, contact, gender } = req.body;
 
-router.post('/sign_in', (req, res) => {
-  const { email, password } = req.body;
-  
-  if (email === dummyUser.email && password === dummyUser.password)
-   {
-    res.json({ success: true, message: "Login successful!" }); //respond with sucees message to user
-   }
-   else 
-   {
-    res.status(401).json({ success: false, message: "Incorrect email or password." }); //else display an error message
-   }
-});
+  // Check if passwords match
+  if (password !== confirmPassword) {
+    return res.status(400).json({ success: false, message: 'Passwords do not match.' });
+  }
 
-router.post('/sign_up', (req, res) => {
-  
-  const { email, password } = req.body;
-  res.json({ success: true, message: "Sign-up successful!." }); //respond with sucees message to user
+  try {
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ success: false, message: 'Email already exists.' });
+    }
 
+    const newUser = new User({ email, password, contact, gender });
+    await newUser.save();
+
+    res.json({ success: true, message: 'Sign-up successful!' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Internal server error.' });
+  }
 });
 
 module.exports = router;
