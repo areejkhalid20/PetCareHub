@@ -26,5 +26,8 @@ router.get('/PetsAccessories', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'views', 'PetsAccessories.html'));
 });
 
+router.get('/Pharmacy', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'views', 'Pharmacy.html'));
+});
 
 module.exports = router;
