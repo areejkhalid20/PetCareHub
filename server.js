@@ -8,7 +8,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.use('view engine','ejs');
 
 //database connection
 mongoose.connect('mongodb://localhost:27017/user_info')
