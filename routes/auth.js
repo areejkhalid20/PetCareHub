@@ -2,17 +2,14 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
-// Route for user sign-up
+// email verification
 router.post('/sign_up', async (req, res) => {
   const { email, password, confirmPassword, contact, gender } = req.body;
 
-  // Check if passwords match
   if (password !== confirmPassword) {
     return res.status(400).json({ success: false, message: 'Passwords do not match.' });
   }
-
   try {
-    // Check if user already exists
     const existingUser = await User.findOne({ email }).exec();
     if (existingUser) {
       return res.status(400).json({ success: false, message: 'Email already exists.' });
@@ -21,8 +18,6 @@ router.post('/sign_up', async (req, res) => {
     // Create new user
     const newUser = new User({ email, password, contact, gender });
     await newUser.save();
-
-    // Redirect to sign-in page upon successful sign-up
     res.redirect('/sign_in');
   } catch (error) {
     console.error(error);
@@ -30,20 +25,16 @@ router.post('/sign_up', async (req, res) => {
   }
 });
 
-// Route for user sign-in
 router.post('/sign_in', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Find user in the database
     const user = await User.findOne({ email }).exec();
-
-    // Check if user exists and password matches
     if (!user || user.password !== password) {
       return res.status(401).json({ success: false, message: 'Incorrect email or password.' });
     }
 
-    // User authenticated successfully
+    
     res.json({ success: true, message: 'Login successful!' });
   } catch (error) {
     console.error(error);
