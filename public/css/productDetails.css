@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif; /* Improves typography */
+    background-color: #FEDBD0; /* Light pink background */
+    color: #030957; /* Dark blue text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    text-align: center;
+    background-color: #ffffff; /* White background for the product card */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    width: 50%;
+    max-width: 600px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.btn {
+    background-color: #FF7A49; /* Vibrant orange button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+.btn:hover {
+    background-color: #E6683C; /* Darker shade of button color on hover */
+}
+.price {
+    color: #FF7A49; /* Orange color for price */
+    font-size: 24px;
+    font-weight: bold;
+}

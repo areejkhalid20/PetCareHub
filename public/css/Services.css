@@ -1,83 +1,58 @@
-/*petfood*/
-body, html
-{
-  font-family: 'Arial', sans-serif;
-  background-color: #FFF5ED;
+body {
+  background-color: #FFF5ED; /* Light peach background */
+  color: #030957; /* Navy blue text */
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
 }
-.container 
-{
-  width: 90%;
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  text-align: center;
+ul {
+  padding: 0;
+  list-style: none;
+  width: 100%; /* Full width to contain all items */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-
-.grid-container
- {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* This creates a responsive grid */
-  gap: 20px;
+li {
+  margin: 10px;
+  flex: 1 1 20%; /* Flex-grow, flex-shrink, flex-basis, making boxes smaller */
+  box-shadow: 0 0 8px #ccc;
+  background-color: #FFFFFF; /* White background for each product */
+  transition: transform 0.5s, box-shadow 0.5s;
+  padding: 10px;
 }
-
-.grid-item 
-{
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease-in-out;
+li:hover {
+  transform: scale(1.05); /* Subtle scale up on hover */
+  box-shadow: 0 0 15px #666;
 }
-
-.grid-item:hover
-{
-  transform: scale(1.05); 
-}
-
-.grid-item img
-{
+img {
   width: 100%;
   height: auto;
-  display: block; /*for gap */
+  display: block;
 }
-
-/* Text and Pricing Styling */
-.grid-item h3
-{
+a, a:visited {
+  text-decoration: none;
   color: #030957;
-  padding: 10px;
-  margin: 10px 0 5px;
 }
-
-.grid-item p 
-{
-  color: #666;
-  font-size: 16px;
-  padding: 0 10px;
+p {
+  margin: 5px 0;
 }
-
-.price 
-{
+.product-name, .product-price {
   font-weight: bold;
-  color: #030957;
-  font-size: 1.2em;
-  margin: 10px;
-  padding: 10px;
 }
-
-/*utilities */
-@media (max-width: 768px)
- {
-  .grid-container 
-  {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
+.add-to-cart {
+  display: block;
+  text-align: center;
+  background-color: #FF7A49; /* Vibrant orange button */
+  color: #FFFFFF;
+  padding: 8px 16px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
-.footersec
-{
-  background-color: #FFF5ED;
-  color: #030957;
-  font-size: 14px;
-  padding-top: 5px; /* Reduced padding-top */
-  padding-bottom: 10px; /* Reduced padding-bottom */
+.add-to-cart:hover {
+  background-color: #CC6329; /* Darker shade on hover */
 }
