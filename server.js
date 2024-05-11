@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 //database connection
-mongoose.connect('mongodb://localhost:27017/user_info')
+mongoose.connect('mongodb://localhost:27017/Pet_care')
 const db = mongoose.connection;
 db.on('error', () => console.log('error occur'));
 db.once('open', () => console.log('Connected to MongoDB'));
