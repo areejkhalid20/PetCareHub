@@ -6,27 +6,43 @@ const jwt = require('jsonwebtoken');
 const User = require('./models/user');
 
 const app = express();
-const generateSessionSecret = () => {
-  return crypto.randomBytes(32).toString('hex');
+
+// Generate session secret
+const sessionSecret = crypto.randomBytes(32).toString('hex');
+
+// Generate JWT secret
+const jwtSecretKey = crypto.randomBytes(32).toString('hex');
+
+// Connect to MongoDB
+const connectToMongoDB = async () => {
+  try {
+    await mongoose.connect('mongodb://localhost:27017/mydatabase', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log('Connected to MongoDB');
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+  }
 };
 
-const sessionSecret = generateSessionSecret();
-mongoose.connect('mongodb://localhost:27017/mydatabase', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log('Connected to MongoDB'))
-.catch(err => console.error('MongoDB connection error:', err));
-
+// Express session setup
 app.use(session({
   secret: sessionSecret,
   resave: false,
   saveUninitialized: true,
 }));
 
-const jwtSecretKey = generateJWTSecret(); 
-
+// JSON body parser
 app.use(express.json());
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Error:', err);
+  res.status(500).json({ success: false, message: 'Internal server error.' });
+});
+
+// Sign-up endpoint
 app.post('/sign_up', async (req, res) => {
   const { email, password } = req.body;
 
@@ -45,6 +61,7 @@ app.post('/sign_up', async (req, res) => {
   }
 });
 
+// Sign-in endpoint
 app.post('/sign_in', async (req, res) => {
   const { email, password } = req.body;
 
@@ -64,6 +81,7 @@ app.post('/sign_in', async (req, res) => {
   }
 });
 
+// Protected endpoint
 app.get('/protected', (req, res) => {
   const token = req.session.token;
 
@@ -80,7 +98,10 @@ app.get('/protected', (req, res) => {
   });
 });
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+// Connect to MongoDB and start server
+const PORT = process.env.PORT || 3000;
+connectToMongoDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
 });
