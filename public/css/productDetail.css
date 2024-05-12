@@ -1,0 +1,97 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FEDBD0; /* Light pale pink background */
+    color: #030957; /* Dark blue text */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container for product details */
+.product-details {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Product image styles */
+.product-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Product name styles */
+.product-name {
+    font-size: 24px;
+    color: #030957;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Product description styles */
+.product-description {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Product price styles */
+.product-price {
+    font-size: 20px;
+    color: #FF6A59;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Rating container */
+.rating {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Star icons for ratings */
+.star {
+    width: 24px;
+    height: 24px;
+    background-image: url('star-icon-path'); /* Path to your star icon */
+    background-size: cover;
+    margin-right: 5px;
+}
+
+/* Full star styling */
+.full-star {
+    background-image: url('../img/star.png'); /* Path to your full star icon */
+}
+
+/* Rating number style */
+.rating-number {
+    font-size: 18px;
+    margin-left: 10px;
+    color: #FF6A59;
+}
+
+/* Add to Cart button styles */
+.add-to-cart-button {
+    background-color: #FF6A59;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for Add to Cart button */
+.add-to-cart-button:hover {
+    background-color: #E65548;
+}

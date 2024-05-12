@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Accessories</title>
+    <link rel="stylesheet" href="/css/Services.css">
+</head>
+<body>
+    <h1>Pet Accessories</h1>
+    <ul>
+        <% products.forEach(function(product) { %>
+            <li>
+                <a href="/product/<%= product._id %>">  <!-- Changed the link to point to the detailed product route -->
+                    <img src="<%= product.image %>" alt="<%= product.name %>">
+                    <p class="product-name"><%= product.name %></p>
+                </a>
+                <p class="product-description"><%= product.description %></p>
+                <p class="product-price">Price: $<%= product.price %></p>
+                <button class="add-to-cart">Add to Cart</button>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
