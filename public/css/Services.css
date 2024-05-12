@@ -1,83 +1,91 @@
-/*petfood*/
-body, html
-{
-  font-family: 'Arial', sans-serif;
-  background-color: #FFF5ED;
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #FEDBD0; /* Light pale pink background */
+  color: #030957; /* Dark blue text */
 }
-.container 
-{
-  width: 90%;
-  max-width: 1200px;
-  margin: 20px auto;
+
+/* Styling for the h1 header */
+h1 {
+  text-align: center;
+  color: #030957;
+}
+
+/* Grid container setup for the ul */
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates a flexible number of columns */
+  grid-gap: 20px; /* Space between grid items */
   padding: 20px;
+  list-style-type: none;
+  margin: 0;
+}
+
+/* List item styles */
+li {
+  border: 1px solid #FF6A59; /* Border color */
+  padding: 10px;
+  background-color: #fff; /* White background for products */
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Link styles */
+a {
+  text-decoration: none;
+  color: #030957;
+}
+
+/* Product image styles */
+img {
+  width: 100%;
+  max-width: 200px; /* Maximum width of images */
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+/* Hover effect for images */
+img:hover {
+  transform: scale(1.1); /* Enlarge image */
+  cursor: pointer;
+}
+
+/* Product name styles */
+.product-name {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Product description styles */
+.product-description {
+  text-align: center;
+  font-size: 0.8em;
+}
+
+/* Product price styles */
+.product-price {
+  color: #FF6A59;
+  font-weight: bold;
   text-align: center;
 }
 
-.grid-container
- {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* This creates a responsive grid */
-  gap: 20px;
+/* Add to Cart button styles */
+button.add-to-cart {
+  background-color: #FF6A59; /* Button background color */
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin: 10px 0;
+  transition: background-color 0.3s;
 }
 
-.grid-item 
-{
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease-in-out;
-}
-
-.grid-item:hover
-{
-  transform: scale(1.05); 
-}
-
-.grid-item img
-{
-  width: 100%;
-  height: auto;
-  display: block; /*for gap */
-}
-
-/* Text and Pricing Styling */
-.grid-item h3
-{
-  color: #030957;
-  padding: 10px;
-  margin: 10px 0 5px;
-}
-
-.grid-item p 
-{
-  color: #666;
-  font-size: 16px;
-  padding: 0 10px;
-}
-
-.price 
-{
-  font-weight: bold;
-  color: #030957;
-  font-size: 1.2em;
-  margin: 10px;
-  padding: 10px;
-}
-
-/*utilities */
-@media (max-width: 768px)
- {
-  .grid-container 
-  {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-}
-.footersec
-{
-  background-color: #FFF5ED;
-  color: #030957;
-  font-size: 14px;
-  padding-top: 5px; /* Reduced padding-top */
-  padding-bottom: 10px; /* Reduced padding-bottom */
+/* Hover effect for Add to Cart button */
+button.add-to-cart:hover {
+  background-color: #E65548; /* Darker shade for hover */
 }

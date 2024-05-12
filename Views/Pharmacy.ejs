@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Services.css">
+    <title>Pharmacy</title>
+</head>
+<body>
+    <div class="grid-container">
+        <% if (pharmacyItems && pharmacyItems.length > 0) { %>
+            <% pharmacyItems.forEach(function(item) { %>
+                <div class="grid-item">
+                    <img src="<%= item.image %>" alt="<%= item.name %>">
+                    <h3><%= item.name %></h3>
+                    <p><%= item.description %></p>
+                    <p class="price">$<%= item.price %></p>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No pharmacy items found.</p>
+        <% } %>
+    </div>
+</body>
+</html>

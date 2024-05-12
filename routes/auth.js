@@ -2,8 +2,9 @@ const express = require('express');
 const session = require('express-session');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
+const router = express.Router();
 const jwt = require('jsonwebtoken');
-const User = require('./models/user');
+const User = require('../models/user');
 
 const app = express();
 
@@ -99,9 +100,5 @@ app.get('/protected', (req, res) => {
 });
 
 // Connect to MongoDB and start server
-const PORT = process.env.PORT || 3000;
-connectToMongoDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
-});
+
+module.exports = router;

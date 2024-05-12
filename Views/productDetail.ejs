@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= product.name %></title>
+    <link rel="stylesheet" href="/css/productDetail.css">
+</head>
+<body>
+    <div class="product-details">
+        <h1 class="product-name"><%= product.name %></h1>
+        <img class="product-image" src="<%= product.image %>" alt="<%= product.name %>" style="width:300px;">
+        <p class="product-description"><%= product.description %></p>
+        <p class="product-price">$<%= product.price %></p>
+        <!-- Placeholder for product ratings, adjust as needed -->
+        <div class="rating">
+            <span class="star full-star"></span> <!-- Repeat or dynamically generate based on rating -->
+            <span class="star full-star"></span>
+            <span class="star full-star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="rating-number">3.0</span> <!-- Dynamic rating value -->
+        </div>
+        <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+</body>
+</html>
