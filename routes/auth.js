@@ -1,72 +1,48 @@
 const express = require('express');
-const session = require('express-session');
-const crypto = require('crypto');
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs'); 
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 const User = require('../models/user');
 
-const app = express();
-
-// Generate session secret
+// Generate session secret and JWT secret
 const sessionSecret = crypto.randomBytes(32).toString('hex');
-
-// Generate JWT secret
 const jwtSecretKey = crypto.randomBytes(32).toString('hex');
 
-// Connect to MongoDB
-const connectToMongoDB = async () => {
-  try {
-    await mongoose.connect('mongodb://localhost:27017/mydatabase', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
-    console.log('Connected to MongoDB');
-  } catch (error) {
-    console.error('MongoDB connection error:', error);
-  }
-};
-
-// Express session setup
-app.use(session({
+// Middleware for session management
+router.use(require('express-session')({
   secret: sessionSecret,
   resave: false,
   saveUninitialized: true,
+  cookie: { maxAge: 600000 } //10 min session in milisec
 }));
-// JSON body parser
-app.use(express.json());
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error('Error:', err);
-  res.status(500).json({ success: false, message: 'Internal server error.' });
-});
+// Route for user sign-up
+router.post('/sign_up', async (req, res) => {
+  const { email, password, confirmPassword, contact, gender } = req.body;
 
-// Sign-up endpoint
-app.post('/sign_up', async (req, res) => {
-  const { email, password } = req.body;
+  // Check if passwords match
+  if (password !== confirmPassword) {
+    return res.status(400).json({ success: false, message: 'Passwords do not match.' });
+  }
 
   try {
     const existingUser = await User.findOne({ email }).exec();
     if (existingUser) {
       return res.status(400).json({ success: false, message: 'Email already exists.' });
     }
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10); // 10 is the number of salt rounds
-
-    const newUser = new User({ email, password: hashedPassword }); // Save the hashed password
+    const newUser = new User({ email, password: hashedPassword, contact, gender });
     await newUser.save();
-    res.status(201).json({ success: true, message: 'User created successfully.' });
+    res.redirect('/sign_in');
   } catch (error) {
-    console.error('Error during sign-up:', error);
+    console.error(error);
     res.status(500).json({ success: false, message: 'Internal server error.' });
   }
 });
 
-// Sign-in endpoint
-app.post('/sign_in', async (req, res) => {
+router.post('/sign_in', async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -75,32 +51,13 @@ app.post('/sign_in', async (req, res) => {
       return res.status(401).json({ success: false, message: 'Incorrect email or password.' });
     }
 
-    const token = jwt.sign({ email: user.email, id: user._id }, jwtSecretKey, { expiresIn: '1h' });
+    const token = jwt.sign({ email: user.email, id: user._id }, jwtSecretKey, { expiresIn: '10m' });
     req.session.token = token;
-
     res.json({ success: true, message: 'Login successful!', token });
   } catch (error) {
-    console.error('Error during sign-in:', error);
+    console.error(error);
     res.status(500).json({ success: false, message: 'Internal server error.' });
   }
 });
 
-// Protected endpoint
-app.get('/protected', (req, res) => {
-  const token = req.session.token;
-
-  if (!token) {
-    return res.status(401).json({ success: false, message: 'Unauthorized. Please sign in.' });
-  }
-  jwt.verify(token, jwtSecretKey, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ success: false, message: 'Invalid token.' });
-    }
-
-    res.json({ success: true, message: 'Protected content', user: decoded });
-  });
-});
-
-// Connect to MongoDB and start server
-
-module.exports = router;
+module.exports = router;
