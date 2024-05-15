@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs'); 
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
@@ -33,7 +34,6 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }));
-
 // JSON body parser
 app.use(express.json());
 
@@ -53,7 +53,10 @@ app.post('/sign_up', async (req, res) => {
       return res.status(400).json({ success: false, message: 'Email already exists.' });
     }
 
-    const newUser = new User({ email, password });
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10); // 10 is the number of salt rounds
+
+    const newUser = new User({ email, password: hashedPassword }); // Save the hashed password
     await newUser.save();
     res.status(201).json({ success: true, message: 'User created successfully.' });
   } catch (error) {
@@ -68,7 +71,7 @@ app.post('/sign_in', async (req, res) => {
 
   try {
     const user = await User.findOne({ email }).exec();
-    if (!user || user.password !== password) {
+    if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(401).json({ success: false, message: 'Incorrect email or password.' });
     }
 
@@ -89,7 +92,6 @@ app.get('/protected', (req, res) => {
   if (!token) {
     return res.status(401).json({ success: false, message: 'Unauthorized. Please sign in.' });
   }
-
   jwt.verify(token, jwtSecretKey, (err, decoded) => {
     if (err) {
       return res.status(401).json({ success: false, message: 'Invalid token.' });
@@ -101,4 +103,4 @@ app.get('/protected', (req, res) => {
 
 // Connect to MongoDB and start server
 
-module.exports = router;
+module.exports = router;
